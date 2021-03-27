@@ -16,8 +16,8 @@ Nous devons également créer l’interface pour l’admin.
 
 ## Contexte
 * Projet de fin de formation Développeur Fullstack Javascript chez o'Clock
-* 4 développeurs juniors / Méthodes Agile
-* Mon rôle: Product Owner
+* 4 développeurs juniors en méthode Agile
+* Mon rôle Scrum : Product Owner
 * [Présentation pour la soutenance du Titre Professionnel Développeur Web et Web Mobile disponible](https://github.com/kamilduvert/orizons/blob/mainDev/O'rizons%20-%20Kamil%20Duvert.pdf)
 * [Livedemo sur Youtube](https://youtu.be/CSQhjBBMLcw?t=3390)
 
