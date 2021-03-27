@@ -12,7 +12,7 @@ Le site offre la possibilité de consulter facilement les différents carnets pu
 Après l’inscription sur le site et authentification, le membre peut publier ses expériences  passées ou en cours, les ranger selon plusieurs catégories pré-définies (voyage, road trip, week-ends, etc.) avec un récit étape par étape. L’application permet au voyageur d’agrémenter ses récits de photos, d’informations comme la géolocalisation. 
 Il dispose aussi d’un compte et d’une page profil qui lui permet de visualiser l’ensemble des pays visités sur une carte ainsi que l’ensemble de ses carnets.
 L’idée des prochaines versions sera de renforcer la partie interaction grâce à des outils tels que les likes, les commentaires et les abonnements.
-Nous devons également créer l’interface pour l’admin car les routes sont quasiment déjà prêtes.
+Nous devons également créer l’interface pour l’admin.
 
 ## Contexte
 * Projet de fin de formation Développeur Fullstack Javascript chez o'Clock
