@@ -23,4 +23,4 @@ Front: React.js, Redux, Axios, React Hook Form (validation), Leaflet.js et Posit
 Back : Node.js, Express, PostgreSQL, Sqitch (versioning), JWT, Firebase (stockage upload) et Heroku (hébergement de l'API)
 
 ## Preview
-
+![orizons](https://user-images.githubusercontent.com/65657506/112722076-afafa900-8f07-11eb-80d9-f35216ca1ff3.png)
