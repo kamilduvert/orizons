@@ -15,9 +15,10 @@ L’idée des prochaines versions sera de renforcer la partie interaction grâce
 Nous devons également créer l’interface pour l’admin car les routes sont quasiment déjà prêtes.
 
 ## Contexte
-* Projet de fin de formation Développeur Fullstack Javascript chez o'Clock.
+* Projet de fin de formation Développeur Fullstack Javascript chez o'Clock
 * 5 développeurs juniors / Méthodes Agile
 * Mon rôle: Product Owner
+* Présentation pour la soutenance du Titre Professionnel Développeur Web et Web Mobile [ici](https://github.com/kamilduvert/orizons/blob/mainDev/O'rizons%20-%20Kamil%20Duvert.pdf)
 
 ## Technologies
 * Front: React.js, Redux, Axios, React Hook Form (validation), Leaflet.js et PositionStack (géolocalisation), Webpack, SaSS et React-Boostrap, FormSpree (formulaire de contact)
