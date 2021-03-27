@@ -4,6 +4,7 @@ const stepDataMapper = require('../datamapper/stepDataMapper');
 const localisationDataMapper = require('../datamapper/localisationDataMapper');
 const categoryDataMapper = require('../datamapper/categoryDataMapper');
 const tripStepDataMapper = require('../datamapper/tripStepDataMapper');
+const memberDataMapper = require('../datamapper/memberDataMapper');
 
 
 const tripController = {
@@ -116,13 +117,30 @@ const tripController = {
     },
     async deleteOneTrip(request, response, next) {
         try {
-            const {
-                tripId
-            } = request.params
-            const trip = await tripDataMapper.deleteOneTrip(tripId);
-            response.json({
-                data: trip
-            })
+            // id du trip à supprimer
+            const { tripId } = request.params
+
+            // id du token récupéré grâce au MW d'authentification
+            console.log(request.member)
+            const { memberId } = request.member;
+            console.log('memberId', memberId);
+
+            // trip à partir de son id
+            const trip = await tripStepDataMapper.getTripById(tripId);
+            console.log('trip', trip);
+
+            // check si le membre qui souhaite supprimer est l'auteur du carnet
+            if (memberId === trip.author[0].id) {
+               const tripDeleted = await tripDataMapper.deleteOneTrip(tripId);
+                response.json({
+                    data: tripDeleted
+                })
+            } else {
+                response.status(403).json({
+                    error: "Suppression du carnet non autorisée"
+                })
+            }
+
         } catch (error) {
             next(error)
         }

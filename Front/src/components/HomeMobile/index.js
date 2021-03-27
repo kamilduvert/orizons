@@ -12,40 +12,34 @@ const HomeMobile = ({ isLoggedIn, randomTrips, handleClick }) => (
   <Container fluid>
     <Row>
       <Card className="text-white home_banner-mobile">
-        <Card.Img src="https://1.bp.blogspot.com/-kMoVqZpdljw/X9NlNNN4ZOI/AAAAAAAAOVY/JSBsT8efWt8v5ICjTA2pgQrG4RjA9jX6ACLcBGAsYHQ/s0/Apple-iPhone-XS-Max-Wallpapers-23.jpeg" className="home_banner-image" />
+        <Card.Img src="https://images.pexels.com/photos/1532771/pexels-photo-1532771.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=300&w=375" className="home_banner-image" />
         <Card.ImgOverlay className="home_banner-mobile-overlay">
-          <Card.Title className="home_banner-mobile-title">"Voyager vous laisse d'abord sans voix, avant de vous transformer en conteur" - Ibn Battuta
+          <Card.Title className="home_banner-mobile-title">"Voyager vous laisse d'abord sans voix, avant de vous transformer en conteur" <br /> - Ibn Battuta
           </Card.Title>
-          <LinkContainer to="/exploration">
-            <Button className="home_banner-mobile-card-btn">Découvrez les carnets d'autres voyageurs</Button>
-          </LinkContainer>
-          {
-                isLoggedIn
-                  ? (
-                    <LinkContainer to="/ajouter-carnet">
-                      <Button className="home_banner-mobile-card-btn">Créez votre carnet de voyage</Button>
-                    </LinkContainer>
-                  )
-                  : (
-                    <LinkContainer to="/inscription">
-                      <Button className="home_banner-mobile-card-btn">Créez votre carnet de voyage</Button>
-                    </LinkContainer>
-                  )
-              }
-        </Card.ImgOverlay>
+          <div className="home-banner-mobile-buttons">
+            <LinkContainer to="/ajouter-carnet">
+              <Button className="home_banner-mobile-card-btn m-2">Publier</Button>
+            </LinkContainer>
+            <LinkContainer to="/exploration">
+              <Button className="home_banner-mobile-card-btn m-2">Explorer</Button>
+            </LinkContainer>
 
+          </div>
+        </Card.ImgOverlay>
       </Card>
     </Row>
 
     <Row>
-      <h4 className="carousel-title">Pourquoi choisir O'rizons ?</h4>
+      <h4 className="carousel-title">Des outils pratiques, pour sublimer vos histoires en quelques instants.</h4>
       <Carousel touch>
 
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://media.discordapp.net/attachments/356888374092627968/806898627217063986/pexels-pixabay-163034.jpg?width=963&height=630"
-            alt="First slide"
+            src="https://media.discordapp.net/attachments/356888374092627968/806898627217063986/pexels-pixabay-163034.jpg?width=375&height=252"
+            srcset="https://media.discordapp.net/attachments/356888374092627968/806898627217063986/pexels-pixabay-163034.jpg?width=375&height=252 375w,
+            https://media.discordapp.net/attachments/356888374092627968/806898627217063986/pexels-pixabay-163034.jpg?width=414&height=280 414w"
+            alt="photo first slide"
           />
           <Carousel.Caption className="carousel-caption-text">
             <h3>Des carnets de voyage à votre image</h3>
@@ -56,8 +50,10 @@ const HomeMobile = ({ isLoggedIn, randomTrips, handleClick }) => (
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://media.discordapp.net/attachments/356888374092627968/806898627912925204/pexels-leah-kelley-185933.jpg?width=963&height=630"
-            alt="Second slide"
+            src="https://media.discordapp.net/attachments/356888374092627968/806898627912925204/pexels-leah-kelley-185933.jpg?width=375&height=252"
+            srcset="https://media.discordapp.net/attachments/356888374092627968/806898627912925204/pexels-leah-kelley-185933.jpg?width=375&height=252 375w,
+            https://media.discordapp.net/attachments/356888374092627968/806898627912925204/pexels-leah-kelley-185933.jpg?width=414&height=280 414w"
+            alt="photo second slide"
           />
 
           <Carousel.Caption className="carousel-caption-text">
@@ -69,8 +65,8 @@ const HomeMobile = ({ isLoggedIn, randomTrips, handleClick }) => (
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://media.discordapp.net/attachments/356888374092627968/806898626403500102/pexels-photo-3280130.jpeg?width=963&height=630"
-            alt="Third slide"
+            src="https://media.discordapp.net/attachments/356888374092627968/806898626403500102/pexels-photo-3280130.jpeg?width=414&height=280"
+            alt="photo third slide"
           />
           <Carousel.Caption className="carousel-caption-text">
             <h3>Une communauté de voyageurs</h3>
@@ -107,7 +103,7 @@ const HomeMobile = ({ isLoggedIn, randomTrips, handleClick }) => (
 
     <Row>
       <h4 className="carousel-title">O'rizons, ce sont nos voyageurs qui en parlent le mieux !</h4>
-      <Carousel className="comments_carousel" touch>
+      <Carousel className="comments_carousel" controls={false} indicators={false} touch>
 
         <Carousel.Item>
           <Card className="card_comment-mobile">

@@ -1,6 +1,8 @@
 @use 'src/styles/vars';
 
 .form-add-trip {
+
+
   .btn {
     background-color: vars.$color-tertiary;
     border-radius: 50px;
@@ -8,7 +10,7 @@
     color: vars.$color-primary;
     transition-duration: 500ms;
     padding: 0.5rem 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 7rem;
 
     &:hover {
       background-color: vars.$color-secondary;

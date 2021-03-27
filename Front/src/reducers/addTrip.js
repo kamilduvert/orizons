@@ -23,14 +23,22 @@ const reducer = (oldState = initialState, action) => {
     case POST_NEW_TRIP_SUCCESS:
       return {
         ...oldState,
-        title: action.trip.title,
-        summary: action.trip.summary,
-        localisation: action.trip.country,
-        coverpicture: action.trip.cover_picture,
-        categories: action.trip.categories,
-        departure_date: action.trip.departure,
-        arrival_date: action.trip.returndate,
-        member_id: action.trip.member_id
+        //title: action.trip.title,
+        //summary: action.trip.summary,
+        //localisation: action.trip.country,
+        //coverpicture: action.trip.cover_picture,
+        //categories: action.trip.categories,
+        //departure_date: action.trip.departure,
+        //arrival_date: action.trip.returndate,
+        //member_id: action.trip.member_id
+        title: '',
+        summary: '',
+        localisation: '',
+        categories: [],
+        departure: '',
+        returndate: '',
+        coverpicture: null,
+        country_code: '',
       };
     default:
       return oldState;

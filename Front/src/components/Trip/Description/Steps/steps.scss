@@ -5,6 +5,14 @@
   flex-direction: column;
   justify-content: center;
   margin: auto !important;
+  padding-left: 0;
+  padding-right: 0;
+
+  &-row {
+    margin-bottom: 6rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .card-step{
@@ -13,6 +21,7 @@
   &-container {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center !important;
   }
 

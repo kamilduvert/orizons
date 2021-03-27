@@ -151,7 +151,7 @@ const tripDataMapper = {
         await client.query(`DELETE FROM _m2m_trip_country WHERE trip_id = $1 `, [tripId]);
         await client.query(`DELETE FROM _m2m_trip_category WHERE trip_id = $1 `, [tripId]);
         await client.query(`DELETE FROM trip WHERE id = $1 `, [tripId]);
-        const message = "supprimé";
+        const message = "le carnet a été supprimé";
         return message;
 
 
@@ -165,7 +165,7 @@ const tripDataMapper = {
 
         }
         await client.query(`DELETE FROM step WHERE id = $1`, [stepId]);
-        const messages = `Suppression de l'étape terminée`;
+        const messages = `l'étape a été supprimée`;
         return messages;
     }
 

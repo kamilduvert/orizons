@@ -37,6 +37,7 @@ const reducer = (oldState = initialState, action) => {
         password: '',
         passwordRepeat: '',
         isLoading: false,
+        errorMessage: '',
       };
     case REGISTER_FAIL:
       return {

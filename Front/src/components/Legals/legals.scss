@@ -1,14 +1,14 @@
 @use 'src/styles/vars';
 
 .legals {
-  width: 50%;
-  margin: 0 auto;
+  width: 80%;
+  margin: 0 auto 8rem;
   padding: 2rem;
-  border: 3px solid vars.$color-tertiary;
-  border-radius: 15px;
+  box-shadow: 2px 2px 4px -1px vars.$color-tertiary;
   background-color: vars.$color-primary;
 
   &-title {
+    font-size: 1.5rem;
     margin: 1.5rem;
   }
 
@@ -19,4 +19,14 @@
 
 .item {
   font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+  .legals {
+    width: 60%;
+
+    &-title {
+      font-size: 2rem;
+    }
+  }
 }

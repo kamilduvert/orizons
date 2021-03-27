@@ -20,10 +20,10 @@ import Page from 'src/components/Page';
 import HomeDesktop from 'src/containers/HomeDesktop'; // REDUX
 import HomeMobile from 'src/containers/HomeMobile'; // REDUX
 import Trips from 'src/containers/Trips'; // REDUX
-import AddTrip from 'src/containers/AddTrip';
-import Profile from 'src/containers/Profile';
-import Trip from 'src/containers/Trip';
-import Results from 'src/containers/Results';
+import AddTrip from 'src/containers/AddTrip'; // REDUX
+import Profile from 'src/containers/Profile'; // REDUX
+import Trip from 'src/containers/Trip'; // REDUX
+import Results from 'src/containers/Results'; // REDUX
 
 // == Dumb Components
 import Footer from 'src/components/Footer';
@@ -61,55 +61,61 @@ const App = ({ isLoggedIn, loadMember, loadTrips, loadCountries, loadCategories 
     }
   }, [isLoggedIn]);
   return (
-    <div>
+    <div className="app">
       <Header />
       <ToastContainer
         position="bottom-right"
       />
       <Page>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/accueil">
             {
-              width > 769
+              width > 767
                 ? <HomeDesktop />
                 : <HomeMobile />
             }
           </Route>
-          <Route exact path="/inscription">
+          <Route path="/inscription">
             <Register />
           </Route>
-          <Route exact path="/connexion">
+          <Route path="/connexion">
             <Login />
           </Route>
-          <Route exact path="/contact">
+          <Route path="/contact">
             <ContactForm />
           </Route>
-          <Route exact path="/a-propos">
+          <Route path="/a-propos">
             <About />
           </Route>
-          <Route exact path="/mentions-legales">
+          <Route path="/mentions-legales">
             <Legals />
           </Route>
           <Route exact path="/exploration">
             <Trips />
           </Route>
-          <Route exact path="/exploration/:id">
+          <Route path="/exploration/:id">
             <Trip />
           </Route>
-          <Route exact path="/profil/:id">
+          <Route path="/profil/:id">
             <Profile />
           </Route>
-          <Route exact path="/ajouter-carnet">
-            { isLoggedIn ? <AddTrip /> : <Redirect to="/connexion" />}
+          <Route path="/ajouter-carnet">
+            {isLoggedIn ? <AddTrip /> : <Redirect to="/connexion" />}
           </Route>
-          <Route exact path="/compte">
-            { isLoggedIn ? <Account /> : <Redirect to="/connexion" />}
+          <Route path="/compte">
+            {isLoggedIn ? <Account /> : <Redirect to="/connexion" />}
           </Route>
-          <Route exact path="/resultats">
+          <Route path="/resultats">
             <Results />
-          </Route >
-          <Route>
+          </Route>
+          <Route path="/404">
             <Lost404 />
+          </Route>
+          <Route path="/">
+            <Redirect to="/accueil" />
+          </Route>
+          <Route>
+            <Redirect to="/404" />
           </Route>
         </Switch>
       </Page>

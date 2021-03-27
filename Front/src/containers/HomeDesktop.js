@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import history from '../history';
+import history from '../utils/history';
 
 import HomeDesktop from 'src/components/HomeDesktop';
 import {

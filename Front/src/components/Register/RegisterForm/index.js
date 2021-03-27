@@ -1,3 +1,4 @@
+// Yarn Modules
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -6,6 +7,9 @@ import {
 } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 
+import validationPatterns from '../../../validation/patterns';
+
+// Styles
 import './registerForm.scss';
 
 const Register = ({
@@ -45,6 +49,10 @@ const Register = ({
             ref={register({
               // si le champ n'est pas rempli lors de la soumission, le champ se met en focus
               required: 'Veuillez remplir ce champ !',
+              pattern: {
+                value: validationPatterns.alphanumPattern,
+                message: 'Ce champ doit contenir au moins 6 lettres ou chiffres'
+              }
             })}
           />
           {errors.nickname && <div className="text-danger mb-2">{errors.nickname.message}</div>}
@@ -58,6 +66,10 @@ const Register = ({
             onChange={(e) => handleChange(e)}
             ref={register({
               required: 'Veuillez remplir ce champ !',
+              pattern: {
+                value: validationPatterns.textOnlyPattern,
+                message: 'Ce champ ne doit contenir que des lettres'
+              }
             })}
           />
           {errors.lastname && <div className="text-danger">{errors.lastname.message}</div>}
@@ -71,6 +83,10 @@ const Register = ({
             onChange={(e) => handleChange(e)}
             ref={register({
               required: 'Veuillez remplir ce champ !',
+              pattern: {
+                value: validationPatterns.textOnlyPattern,
+                message: 'Ce champ ne doit contenir que des lettres'
+              }
             })}
           />
           {errors.firstname && <div className="text-danger">{errors.firstname.message}</div>}
@@ -134,7 +150,7 @@ const Register = ({
             <span className="sr-only">Loading...</span>
           </Button>
         ) : <Button block size="lg" className="mt-3 form-btn" type="submit">Valider</Button>}
-        <p className="text-center m-3">Vous êtes déjà inscrit ? <Link to="/connexion">Connectez-vous !</Link></p>
+        <p className="text-center m-3">Vous êtes déjà inscrit ? <br /> <Link to="/connexion">Connectez-vous !</Link></p>
       </Form>
     </Container>
   );

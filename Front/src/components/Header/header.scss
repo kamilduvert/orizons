@@ -2,8 +2,7 @@
 
 .navbar_header {
   background-color: vars.$color-tertiary;
-  height: 12vh;
-  min-height: 5vh;
+  align-items: center;
 
   a {
     color:vars.$color-primary !important;
@@ -12,6 +11,7 @@
     }
     &:hover {
       color:vars.$color-secondary !important;
+      transform: scale(1.05);
     }
   }
 
@@ -60,7 +60,7 @@
 #responsive-navbar-nav {
   background-color: vars.$color-tertiary;
   padding: 1rem;
-  margin: -1rem -1rem 0 !important;
+  margin: 0rem -1rem 0 !important;
 }
 
 .profile_photo {
@@ -70,13 +70,21 @@
 }
 
 .logo {
-  font-size: 40px;
-  padding-bottom: 1.1rem;
+  font-size: 35px;
+  padding-bottom: 15px;
   background: -webkit-linear-gradient(#EE82EE, #1E90FF);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: vars.$font-title !important;
   margin-left: 0px;
+}
+
+.photo-btn__container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: 10px;
 }
 
 
@@ -96,10 +104,6 @@
     display: inline;
   }
 
-  .navbar_header {
-    height: 8vh;
-  }
-
   #responsive-navbar-nav {
     padding: 0;
     margin: 0 !important;
@@ -112,22 +116,19 @@
     border: 2px solid vars.$color-tertiary;
   }
 
+  .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+
+  // ============== SEARCH BAR EXPANDING ====================
   input#search:focus, input#search:active {
     width: 350px;
   }
 }
 
-// ============== SEARCH BAR EXPANDING ====================
-
 input#search {
-  width: 100px;
+  width: 150px;
 }
-
-// input#search:focus, input#search:active {
-//   width: 250px;
-// }
-// button#searchBtn:hover input#search{
-//   width: 300px;
-// }
-
 

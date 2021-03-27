@@ -20,8 +20,8 @@ const Legals = () => {
 
         <h2 className="legals-title">Technologies utilisées</h2>
         <ul>
-          <li className="legals-list-item"><span className="item">Front :</span>React.js, Redux, React Boostrap, SCSS, Leaflet.js</li>
-          <li className="legals-list-item"><span className="item">Back :</span>Node.js, Express, PostgreSQL Sqitch, Heroku </li>
+          <li className="legals-list-item"><span className="item">Front : </span>React.js, Redux, React Boostrap, SCSS, Leaflet.js, PositionStack</li>
+          <li className="legals-list-item"><span className="item">Back : </span>Node.js, Express, PostgreSQL Sqitch, Firebase, Heroku, Formspree </li>
         </ul>
       
       </Container>

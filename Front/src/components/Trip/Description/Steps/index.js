@@ -15,14 +15,8 @@ import {
 
 const Steps = ({ steps, trip, connectedUserId, editStep, deleteStep })=>{
 
-  //Gestion modale modification de carnet
+  //Gestion modale modification d'étape
   const [show, setShow] = useState([]);
-
-  const handleClose = (modalId) => {
-    let showTest = show.slice();
-    showTest[modalId] = false;
-    setShow(showTest);
-  };
 
   const handleShow = (step) => {
     setValues({...values, localisation: [step.latitude, step.longitude]})
@@ -31,18 +25,27 @@ const Steps = ({ steps, trip, connectedUserId, editStep, deleteStep })=>{
     setShow(showTest);
   };
 
-  // Gestion modale suppression carnet
-  const[showDelete, setShowDelete] = useState([]);
-  const handleCloseDelete = (modalId) => {
-    let showTest = showDelete.slice();
+  const handleClose = (modalId) => {
+    let showTest = show.slice();
     showTest[modalId] = false;
-    setShowDelete(showTest);
+    setShow(showTest);
   };
+
+  // Gestion modale suppression étape
+  const[showDelete, setShowDelete] = useState([]);
+
   const handleShowDelete = (modalId) => {
-    let showTest = showDelete.slice();
-    showTest[modalId] = true;
-    setShowDelete(showTest);
+    let showDeleteCopy = showDelete.slice();
+    showDeleteCopy[modalId] = true;
+    setShowDelete(showDeleteCopy);
   };
+
+  const handleCloseDelete = (modalId) => {
+    let showDeleteCopy = showDelete.slice();
+    showDeleteCopy[modalId] = false;
+    setShowDelete(showDeleteCopy);
+  };
+
   
   //Formulaire
   const {
@@ -183,7 +186,7 @@ const Steps = ({ steps, trip, connectedUserId, editStep, deleteStep })=>{
     </Col>
   </Row>
   <Row className="steps_container">
-  <Col>
+  <Col className="steps_container-row">
   {/*Pour chaque step du trip, on crée une nouvelle carte TODO: améliorer le style, dimensions et ajout de bordure */}
   {steps.map(step=>{
     // Je transforme les titres en slug pour les utiliser comme id de chaque carte afin de créer des ancres dans la page

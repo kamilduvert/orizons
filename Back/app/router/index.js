@@ -1,5 +1,4 @@
 const express = require('express');
-const jwt = require('../middleware/auth');
 
 const tripRouter = require('./tripRouter');
 const categoryRouter = require('./categoryRouter');
@@ -22,7 +21,6 @@ router.use('/comments', commentRouter);
 router.use('/countries', countryRouter);
 
 router.use(errorController.error404);
-
 router.use(errorController.error500);
 
 module.exports = router;

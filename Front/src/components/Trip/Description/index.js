@@ -74,7 +74,7 @@ const Description = ({trip, steps, connectedUserId, editStep, deleteStep})=>{
         <h4 className="text-center infos-col-title">Statistiques</h4>
         <Container>
           <Row className="stats-row">
-            <Col lg={12}><i className="fas fa-clock mr-2 stats-icons"></i>Durée : {trip.duration} jour(s)</Col>
+            <Col lg={12}><i className="fas fa-clock mr-2 stats-icons"></i>Durée : {trip.duration} {trip.duration > 1 ? 'jours' : 'jour'}</Col>
           </Row>
           <Row className="stats-row">
             <Col lg={12}><i className="fas fa-road mr-2 stats-icons"></i>Distance : {Math.round(calculateDistanceBewteenAllSteps(steps))} km</Col>

@@ -1,13 +1,14 @@
 @use 'src/styles/vars';
 
 .form-contact {
-  border: 3px solid vars.$color-tertiary;
+  box-shadow: 2px 2px 4px -1px vars.$color-tertiary;
   background-color: vars.$color-secondary;
   display: flex;
   flex-direction: column;
-  margin: 3rem auto;
+  margin: 0rem auto;
+  margin-bottom: 8rem;
+  width: 80%;
   padding: 2rem 3rem;
-  border-radius: 15px;
   
   &-btn {
     background-color: vars.$color-tertiary;
@@ -23,18 +24,51 @@
       border: 3px solid vars.$color-tertiary;
     }
   }
+
+  &-error {
+    color: red;
+  }
+
+  &-success {
+    text-align: center;
+    background-color: transparent;
+
+    &-icon {
+      font-size: 4rem;
+      display: block;
+      margin: 2rem;
+    }
+    &-text {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+  }
 }
 
-@media screen and (min-width: 1024px) {
+
+.background-image-contact {
+  background-color: #ddd;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23b234cc' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%234d2579' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23b940cb' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23752ea2' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23b250bc' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23441457' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23ac0fb6' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%238d479d' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23a524aa' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%238d2a96' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23aa03aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23854685' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  flex:1;
+}
+
+@media screen and (min-width: 768px) {
   .form-contact {
-  width: 40%
+  width: 60%
   }
   .background-image-contact {
     background-image: url('https://images.unsplash.com/reserve/91JuTaUSKaMh2yjB1C4A_IMG_9284.jpg?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 86vh;
+    flex:1;
   }
-  
+}
+
+@media screen and (min-width: 768px) {
+  .form-contact {
+    width: 40%
+    }
 }

@@ -13,13 +13,23 @@
   margin: 0.2rem;
 }
 
+.categories_container {
+  overflow: auto;
+}
+
 .profile_photo {
   height: 50px;
   width: 50px;
 }
 
+.cards_trip_container {
+  margin-top: 1rem;
+  margin-bottom: 6rem;
+}
+
 .card_trips {
-  height: 400px;
+  text-align: center;
+  height: 420px;
   width: 300px;
   margin: 1rem auto !important;
   box-shadow: 2px 2px 4px -1px vars.$color-tertiary;
@@ -44,6 +54,13 @@
   }
 
   &-text {
+    height: 10px;
+    overflow: hidden;
+    margin: 0;
+    text-align: left;
+  }
+
+  &-text {
     height: 80px;
     overflow: hidden;
     text-align: left;
@@ -53,6 +70,10 @@
     padding: 0.2rem !important;
     height: 75px;
   } 
+}
+
+.categories-carousel-mobile {
+  text-align: center;
 }
 
 @media screen and (min-width: 1200px) {

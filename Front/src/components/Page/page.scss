@@ -2,6 +2,10 @@
 
 .page {
   background-color: vars.$color-secondary;
-  // padding-bottom: 2em;
-  min-height: 86vh;
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
+
+

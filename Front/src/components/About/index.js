@@ -10,31 +10,31 @@ const About = () => {
       id: 1,
       name: "Kamil",
       title: "Product Owner",
-      photo: "https://ca.slack-edge.com/T018S94MBUY-U018XGBSWDP-d41d27ad106a-512",
+      photo: "https://ca.slack-edge.com/T018S94MBUY-U018XGBSWDP-d41d27ad106a-370",
     },
     {
       id: 2,
       name: "Juliette",
       title: "Scrum Master",
-      photo: "https://ca.slack-edge.com/T018S94MBUY-U01846K5SG7-f25fc70a8b26-512",
+      photo: "https://ca.slack-edge.com/T018S94MBUY-U01846K5SG7-f25fc70a8b26-370",
     },
     {
       id: 3,
       name: "Stéphanie",
       title: "Git Master",
-      photo: "https://ca.slack-edge.com/T018S94MBUY-U0198NZKVT2-5e789b566ecb-512",
+      photo: "https://ca.slack-edge.com/T018S94MBUY-U0198NZKVT2-5e789b566ecb-370",
     },
     {
       id: 4,
       name: "Armandine",
       title: "Lead Back",
-      photo: "https://ca.slack-edge.com/T018S94MBUY-U018R2G9V60-f3e12639031e-512",
+      photo: "https://ca.slack-edge.com/T018S94MBUY-U018R2G9V60-f3e12639031e-370",
     },
     {
       id: 5,
       name: "Paul",
       title: "Lead Front",
-      photo: "https://ca.slack-edge.com/T018S94MBUY-U01FWGGJ1S5-618ba15e20dd-512",
+      photo: "https://ca.slack-edge.com/T018S94MBUY-U01FWGGJ1S5-618ba15e20dd-370",
     },
   ]
 

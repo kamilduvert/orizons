@@ -29,10 +29,10 @@ const Header = ({
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
           <LinkContainer to="/ajouter-carnet">
-            <Nav.Link>Publier son carnet de voyage</Nav.Link>
+            <Nav.Link>Publier un carnet</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/exploration">
-            <Nav.Link>Explorer les carnets de voyage</Nav.Link>
+            <Nav.Link>Explorer les carnets</Nav.Link>
           </LinkContainer>
         </Nav>
         <Form 
@@ -58,7 +58,7 @@ const Header = ({
         <Nav className="profile">
           {isLoggedIn
             ? (
-              <>
+              <div className="photo-btn__container">
                 <Image className="profile_photo m-2" src={profilePhoto} roundedCircle />
                 <DropdownButton
                   title={nickname}
@@ -74,9 +74,9 @@ const Header = ({
                   </LinkContainer>
 
                   <Dropdown.Divider />
-                  <Dropdown.Item onClick={handleClick}><i className="fas fa-sign-out-alt mr-2" />Se déconnecter</Dropdown.Item>
+                  <Dropdown.Item onClick={handleClick}><i className="fas fa-paper-plane mr-2" />Se déconnecter</Dropdown.Item>
                 </DropdownButton>
-              </>
+              </div>
             )
             : (
               <>
@@ -102,8 +102,8 @@ Header.propTypes = {
   id: PropTypes.number.isRequired,
 };
 
-Header.defaultProps = {
-  profilePhoto: 'https://media.fabfab.net/images/products/popup/cotton-poplin-plain-white--15_10005_001.jpg',
-};
-
 export default Header;
+
+// Header.defaultProps = {
+//   profilePhoto: 'https://media.fabfab.net/images/products/popup/cotton-poplin-plain-white--15_10005_001.jpg',
+// };

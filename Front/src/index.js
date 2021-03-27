@@ -10,7 +10,7 @@ import store from 'src/store';
 // Composants
 import App from 'src/containers/App';
 
-import history from './history';
+import history from './utils/history';
 
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';

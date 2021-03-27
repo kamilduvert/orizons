@@ -11,8 +11,8 @@
 .delete-trip-button, 
 .add-step-button,
 .form-button {
-    min-width: 50%;
-    max-width: 70%;
+    //min-width: 50%;
+    //max-width: 70%;
     margin-top: 1rem;
     background-color: vars.$color-tertiary;
     border-radius: 50px;
@@ -35,7 +35,8 @@
 }
 
 .add-step-button {
-    margin-bottom: 2rem;
+  margin-top: -1rem;  
+  margin-bottom: 6rem;
 }
  
 .form-title {

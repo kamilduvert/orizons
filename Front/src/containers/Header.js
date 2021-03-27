@@ -7,7 +7,7 @@ import {
 import {
   changeSearchField, search
 } from '../actions/trips';
-import history from '../history';
+import history from '../utils/history';
 
 const mapStateToProps = (state) => ({
   isLoggedIn: state.auth.isLoggedIn,

@@ -1,10 +1,13 @@
 /* -- colors -- */
 $color-primary: #ffffff;
-$color-secondary: #dddddd;
+$color-secondary: rgb(237, 237, 237);
 $color-tertiary: #212123;
 
 /* -- fonts -- */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Marck+Script&family=Yusei+Magic&display=swap');
-$font-body: 'Lato', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+// $font-body: 'Lato', sans-serif;
+$font-body: 'Quicksand', serif;
 $font-title: 'Yusei Magic', sans-serif;
 $font-quote: 'Yusei Magic', sans-serif;

@@ -25,7 +25,7 @@ const ProfileInfos = ({ member, trips, handleClick }) => {
       <h4 className="text-center infos-col-title">Statistiques</h4>
         <Container className="stats">
           <Row className="stats-row">
-            <Col lg={6} ><i className="fas fa-book-open mr-2 stats-icons"></i>{trips[0] != null ? trips.length : 0} carnet(s) publié(s)</Col>
+            <Col lg={6} ><i className="fas fa-book-open mr-2 stats-icons"></i>{trips[0] != null ? trips.length : 0} carnet(s)</Col>
             {/* <Col lg={6}><i className="fas fa-road mr-2 stats-icons"></i>12000km parcourus</Col> */}
           </Row>
           <Row className="stats-row">

@@ -1,3 +1,4 @@
+// Yarn modules
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -8,6 +9,7 @@ import { useForm } from 'react-hook-form';
 
 import Title from '../PageTitle';
 
+// Styles
 import './login.scss';
 
 const Login = ({
@@ -26,7 +28,7 @@ const Login = ({
   return (
     <div className="background-image-login">
       <Title texte="Connectez-vous pour partager vos aventures !" />
-      <Container className="d-flex justify-content-center align-items-center">
+      <Container className="d-flex mt-4 justify-content-center align-items-center">
         <Form
           className="form-login"
           onSubmit={handleSubmit(handleLogin)}
@@ -72,7 +74,7 @@ const Login = ({
               <span className="sr-only">Loading...</span>
             </Button>
           ) : <Button block size="lg" className="mt-3 form-login-btn" type="submit">Valider</Button>}
-          <p className="text-center m-3">Vous n'avez pas encore de compte ? <Link to="/inscription">Inscrivez-vous !</Link></p>
+          <p className="text-center m-3">Vous n'avez pas encore de compte ? <br /> <Link className="form-login-link" to="/inscription">Inscrivez-vous !</Link></p>
         </Form>
       </Container>
     </div>
@@ -89,3 +91,4 @@ Login.propTypes = {
 };
 
 export default Login;
+

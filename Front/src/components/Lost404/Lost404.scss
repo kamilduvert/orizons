@@ -3,9 +3,11 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 86vh;
+  min-height: 87vh;
 
   display: flex;
-  align-items: center;
-  flex: start;
+  flex-direction: column;
+ justify-content: center;
+  align-items: flex-start;
+  //flex: start;
 }

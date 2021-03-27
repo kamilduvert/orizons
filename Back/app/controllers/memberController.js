@@ -3,6 +3,12 @@ const tripDataMapper = require('../datamapper/tripDataMapper')
 const jsonwebtoken = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
+const mailgun = require("mailgun-js");
+const DOMAIN = process.env.MAILGUN_DOMAIN;
+const mg = mailgun({apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN});
+
+const refreshTokens = [];
+
 const memberController = {
     async getAllMember(_, response, next) {
         try {
@@ -25,13 +31,16 @@ const memberController = {
                 password
             } = request.body;
             const member = await memberDataMapper.getMemberLogin(email);
+
+            // S'il existe pas on renvoie une erreur 404
             if (!member) {
-                return response.status(404).send({
+                return response.status(401).json({
                     token: null,
-                    message: "L\'adresse email n\'existe pas !"
+                    message: 'Email ou mot de passe incorrect'
                 })
             }
 
+            // S'il existe pas on vérifie que le mot de passe est correct grâce à bcrypt
             const isPasswordValid = bcrypt.compareSync(
                 password,
                 member.password
@@ -39,9 +48,9 @@ const memberController = {
 
             if (!isPasswordValid) {
                 // gestion des erreurs
-                return response.status(401).send({
+                return response.status(401).json({
                     token: null,
-                    message: 'Mot de passe incorrect'
+                    message: 'Email ou mot de passe incorrect'
                 });
             }
 
@@ -53,12 +62,46 @@ const memberController = {
                 algorithm: 'HS256',
                 expiresIn: '3h'
             };
+
+            
+            const token = jsonwebtoken.sign(jwtContent, process.env.TOKEN_SECRET, jwtOptions);
+            const refreshToken = jsonwebtoken.sign(jwtContent, process.env.REFRESH_TOKEN_SECRET);
+            refreshTokens.push(refreshToken)
+
             response.json({
-                token: jsonwebtoken.sign(jwtContent, process.env.SECRET, jwtOptions)
+                token: token,
+                refreshToken: refreshToken
             });
+
         } catch (error) {
             next(error)
         }
+    },
+
+    refreshToken (request, response, next) {
+        const { token } = request.body;
+
+        if (!token) {
+            return res.sendStatus(401);
+        }
+    
+        if (!refreshTokens.includes(token)) {
+            return res.sendStatus(403);
+        }
+    
+        jwt.verify(token, refreshTokenSecret, (err, user) => {
+            if (err) {
+                return res.sendStatus(403);
+            }
+    
+            const newToken = jwt.sign({
+                memberId: member.id
+            }, process.env.JWT_TOKEN_SECRET, { expiresIn: '1h' });
+    
+            res.json({
+                token: newToken
+            });
+        });
     },
 
     async getOneMember(request, response, next) {
@@ -84,6 +127,25 @@ const memberController = {
     async createMember(request, response, next) {
         try {
             const newMember = request.body;
+
+            const existingMember = await memberDataMapper.getMemberLogin(newMember.email);
+            
+            if (existingMember) {
+                return response.status(400).json({
+                    message: 'Utilisateur existe déjà avec cette adresse email'
+                })
+            };
+
+            const data = {
+                from: 'noreply@orizons.com',
+                to: 'kduvert@gmail.com',
+                subject: 'Hello',
+                text: 'Ceci est un test'
+            };
+            mg.messages().send(data, function (error, body) {
+                console.log(body);
+                console.log(error);
+            });
 
             const saltRounds = 10;
             const hashedPassword = bcrypt.hashSync(newMember.password, saltRounds);

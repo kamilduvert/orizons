@@ -57,7 +57,6 @@ const AddStep = ({title, summary, date, localisation, pictures, localisationInpu
       () => ({
         dragend(e) {
           // We are using the endpoint of the marker drag to update our input position
-          console.log(e.target);
           const newPosition = [e.target._latlng.lat, e.target._latlng.lng];
           setPosition(newPosition);
           changeField('localisation', newPosition);
@@ -90,7 +89,6 @@ const AddStep = ({title, summary, date, localisation, pictures, localisationInpu
     setTimer(window.setTimeout(()=>{axios.get(`http://api.positionstack.com/v1/forward?access_key=${APIkey}&query=${userQuery}`)
       .then((response) => {
         setSuggestions(response.data.data);
-        console.log(suggestions)
         //const newPosition = [response.data.data[0].latitude, response.data.data[0].longitude];
         //changeField('localisation', newPosition);
         //changeField('showInput', false);
@@ -100,7 +98,6 @@ const AddStep = ({title, summary, date, localisation, pictures, localisationInpu
 
   const locateSuggestion = ()=>{
     let adressSelected = suggestions.find(suggestion => suggestion.label == localisationInput) || suggestions[0];
-    console.log(adressSelected)
     const newPosition = [adressSelected.latitude, adressSelected.longitude];
     changeField('localisation', newPosition);
     changeField('showInput', false);
@@ -125,7 +122,6 @@ const AddStep = ({title, summary, date, localisation, pictures, localisationInpu
   useEffect(() => {
     getCountryFromAPI();
   }, [localisation]);
-  console.log('tripAddStep',trip)
   // START OF ADDSTEP COMPONENT
   return (
     <div>
@@ -149,9 +145,10 @@ const AddStep = ({title, summary, date, localisation, pictures, localisationInpu
               formData.country_code = country_code;
               formData.trip_id = trip.id;
               const fileListToArray = [...formData.pictures];
-              const emptyArray = [];
+              const urlList = [];
               const promises = [];
               fileListToArray.map(picture => {
+
 
                 const uploadTask = storage.ref(`photos/trips/steps/${picture.name}`).put(picture);
                 promises.push(uploadTask);
@@ -169,18 +166,15 @@ const AddStep = ({title, summary, date, localisation, pictures, localisationInpu
                       .child(picture.name)
                       .getDownloadURL()
                       .then((url) => {
-                        // fileListToArray[index]= url;
-                        emptyArray.push(url)
+                        urlList.push(url)
                       });
                   },
                 );
               });
-              console.log('promises outside before PROMISE', promises);
+              console.log('urllist', urlList);
               Promise.all(promises)
                 .then(() => {
-                // formData.pictures = fileListToArray;
-                formData.pictures = emptyArray;
-                console.log('formDataPictures',formData)
+                formData.pictures = urlList;
                 setTimeout(()=>postStep(formData), 500);
                 setSubmitting(false);
               })

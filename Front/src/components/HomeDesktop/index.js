@@ -22,7 +22,6 @@ const HomeDesktop = ({
           <h2 className="home-banner-title">"Voyager vous laisse d'abord sans voix, avant de vous transformer en conteur." <br />
             Ibn Battuta</h2>
           <div className="home-banner-overlay">
-            <p className="home-banner-overlay-text">O'rizons met à votre disposition tous les outils nécessaires pour raconter votre voyage, comme bon vous semble.</p>
             <p className="home-banner-overlay-text">Vous souhaitez partager votre expérience avec vos proches, inspirer d'autres voyageurs à marcher dans vos pas ou simplement conserver une trace de votre dernière aventure ?</p>
             {
                 isLoggedIn
@@ -44,7 +43,7 @@ const HomeDesktop = ({
       </div>
       <Container fluid>
         <Row>
-          <h4 className="row-title">O'rizons, qu'est-ce que c'est ?</h4>
+          <h4 className="row-title">Des outils pratiques, pour sublimer vos histoires en quelques instants.</h4>
         </Row>
 
         <Row>
@@ -236,68 +235,9 @@ const HomeDesktop = ({
         <Row>
           <Col>
             <Carousel className="home-testimonials" controls={false} indicators={false} touch>
-
               <Carousel.Item>
-                <CardDeck>
-                  <Col md={3}>
-                    <Card>
-                      <Card.Header>
-                        <Image className="profile_photo m-2" src={anonyme} roundedCircle />
-                        <small className="text-muted">Kamil</small>
-                      </Card.Header>
-                      <Card.Body>
-                        <Card.Text>
-                          C'est trop cool ! Mes grand-parents peuvent suivre toutes mes aventures facilement depuis chez eux :)
-                    </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                  <Col md={3}>
-                    <Card>
-                      <Card.Header>
-                        <Image className="profile_photo m-2" src={anonyme} roundedCircle />
-                        <small className="text-muted">Paul</small>
-                      </Card.Header>
-                      <Card.Body>
-                        <Card.Text>
-                          J'adore partager mes voyages, et O'rizons est le meilleur site que je connaisse pour le faire !
-                    </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                  <Col md={3}>
-                    <Card>
-                      <Card.Header>
-                        <Image className="profile_photo m-2" src={anonyme} roundedCircle />
-                        <small className="text-muted">Juliette</small>
-                      </Card.Header>
-                      <Card.Body>
-                        <Card.Text>
-                          Super design, pratique à utiliser. C'est top !
-                    </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                  <Col md={3}>
-                    <Card>
-                      <Card.Header>
-                        <Image className="profile_photo m-2" src={anonyme} roundedCircle />
-                        <small className="text-muted">Armandine</small>
-                      </Card.Header>
-                      <Card.Body>
-                        <Card.Text>
-                          La version mobile est super pratique pour partager ses aventures au jour le jour.
-                    </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                </CardDeck>
-
-              </Carousel.Item>
-
-              <Carousel.Item>
-                <CardDeck>
-                  <Col md={3}>
+                <CardDeck className="home-testimonials-deck">
+                  <Col className="home-testimonials-card" md={3}>
                     <Card>
                       <Card.Header>
                         <Image className="profile_photo m-2" src={anonyme} roundedCircle />
@@ -310,7 +250,7 @@ const HomeDesktop = ({
                       </Card.Body>
                     </Card>
                   </Col>
-                  <Col md={3}>
+                  <Col className="home-testimonials-card" md={3}>
                     <Card>
                       <Card.Header>
                         <Image className="profile_photo m-2" src={anonyme} roundedCircle />
@@ -323,7 +263,7 @@ const HomeDesktop = ({
                       </Card.Body>
                     </Card>
                   </Col>
-                  <Col md={3}>
+                  <Col className="home-testimonials-card" md={3}>
                     <Card>
                       <Card.Header>
                         <Image className="profile_photo m-2" src={anonyme} roundedCircle />
@@ -336,22 +276,8 @@ const HomeDesktop = ({
                       </Card.Body>
                     </Card>
                   </Col>
-                  <Col md={3}>
-                    <Card>
-                      <Card.Header>
-                        <Image className="profile_photo m-2" src={anonyme} roundedCircle />
-                        <small className="text-muted">JD</small>
-                      </Card.Header>
-                      <Card.Body>
-                        <Card.Text>
-                          Super site !
-                    </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Col>
                 </CardDeck>
               </Carousel.Item>
-
             </Carousel>
           </Col>
         </Row>

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Trips from 'src/components/Trips';
-import history from '../history';
+import history from '../utils/history';
 
 import { getMoreResults, getTrips, getCategories } from '../actions/trips';
 

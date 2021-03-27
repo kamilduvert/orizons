@@ -8,7 +8,7 @@ import './register.scss';
 
 const Register = (props) => (
   <div className="background-image-register">
-    <Title texte="Inscrivez-vous pour créer votre premier carnet !" />
+    <Title texte="Inscrivez-vous gratuitement pour créer votre premier carnet !" />
     <RegisterForm
       {...props}
     />

@@ -5,7 +5,7 @@ import './profileBanner.scss'
 const ProfileBanner = ({member})=>{
   const styles = {
     backgroundImage: `url(${member.cover_member})`,
-    height: '40vh',
+    height: '30vh',
     width: '100%',
     backgroundSize: 'cover',
     backgroundPosition: 'center'

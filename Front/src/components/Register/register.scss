@@ -1,9 +1,20 @@
-@media screen and (min-width: 1024px) {
+@use 'src/styles/vars';
+
+.background-image-register {
+  background-color: #ddd;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23b234cc' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%234d2579' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23b940cb' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23752ea2' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23b250bc' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23441457' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23ac0fb6' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%238d479d' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23a524aa' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%238d2a96' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23aa03aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23854685' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  flex:1;
+}
+
+
+@media screen and (min-width: 800px) {
   .background-image-register {
     background-image: url('https://img.wallpapersafari.com/desktop/1440/900/62/71/r5CGaq.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 86vh;
+    flex: 1;
   }
 }

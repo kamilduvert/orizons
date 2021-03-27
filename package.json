@@ -1,12 +1,12 @@
 {
-  "name": "Back",
+  "name": "back",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev": "node-dev app.js",
+    "start": "nodemon app.js",
+    "dev": "node app.js",
     "import": "node ./Back/datas/import.js"
   },
   "keywords": [],
@@ -20,8 +20,11 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
-    "joi": "^17.3.0",
+    "helmet": "^4.4.1",
+    "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
+    "mailgun-js": "^0.22.0",
+    "morgan": "^1.10.0",
     "pg": "^8.5.1"
   }
 }

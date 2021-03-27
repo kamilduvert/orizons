@@ -2,7 +2,7 @@ import slugify from 'slugify';
 
 import { getRandomTripsSuccess, getTripsByCategoriesSuccess, getTripsByCountrySuccess } from '../actions/trips';
 
-import history from '../history';
+import history from '../utils/history';
 
 import {
   GET_RANDOM_TRIPS, GET_TRIPS_BY_CATEGORY, RANDOM_SEARCH, GET_TRIPS_BY_COUNTRY, SEARCH

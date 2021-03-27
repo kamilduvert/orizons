@@ -5,7 +5,6 @@ import {
   Container, Card, ListGroup, ListGroupItem, Button, Modal, Nav,
   Form, Alert, Spinner,
 } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import dayjs from 'dayjs';
@@ -114,29 +113,25 @@ const Account = ({
     <>
       <Title texte="Votre compte" />
       {isLoading && (
-      <Spinner animation="border" role="status">
-        <span className="sr-only">Chargement...</span>
-      </Spinner>
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Chargement...</span>
+        </Spinner>
       )}
-      <Container>
+      <Container className="card-account-container">
         {/* ==================== CARD ========================================= */}
-        <Card className="card-account mb-2">
-          <Card.Img className="card-account__img" src={profilePhoto} />
+        <Card className="card-account p-2">
+          <label htmlFor="profile-photo" className="card-account__label"><Card.Img className="card-account__img" src={profilePhoto} /></label>
           {progress > 0 && progress !== 100 && <progress value={progress} max="100" />}
-          <form className="form-account">
-            <input className="card-account__input" accept="image/*" type="file" onChange={onChangeHandler} />
-            <button type="submit" className="card-account__input__btn" onClick={onSubmitHandler}>Valider
+          <input id="profile-photo" className="card-account__input" accept="image/*" type="file" onChange={onChangeHandler} hidden={true} />
+          <p className="text-center">Cliquez sur la photo pour la modifier puis appuyez sur Valider !</p>
+          <button  type="button" className="card-account__input__btn" onClick={onSubmitHandler}>Valider
             </button>
-          </form>
-          {/* <LinkContainer to={`/profil/${id}`} className="card-account__link">
-            <Nav.Link>Consulter le profil public</Nav.Link>
-          </LinkContainer> */}
+
           <Card.Body>
-            <Card.Title className="card-account__title">Paramètres du compte</Card.Title>
             <Card.Text className="card-account__text">
               Membre depuis le <span className="font-weight-bold">{dayjs(`${registrationDate}`).format('DD/MM/YYYY')}</span>
             </Card.Text>
-            <ListGroup className="list-group-flush">
+            <ListGroup className="list-group-flush ">
               <ListGroupItem>
                 <div>Nom : <span className="font-weight-bold">{lastname}</span></div>
               </ListGroupItem>
@@ -151,28 +146,28 @@ const Account = ({
               </ListGroupItem>
             </ListGroup>
           </Card.Body>
-        
-        {/* ==================== BUTTONS ========================================= */}
-        <div className="text-center mb-2">
-          <Button
-            className="m-2"
-            onClick={() => {
-              handleUpdateModal();
-            }}
-            variant="dark"
-          >
-            <i className="far fa-edit" />
-          </Button>
-          <Button
-            className="m-2"
-            onClick={() => {
-              handleDeleteModal();
-            }}
-            variant="danger"
-          >
-            <i className="fas fa-trash" />
-          </Button>
-        </div>
+
+          {/* ==================== BUTTONS ========================================= */}
+          <div className="text-center mb-2">
+            <Button
+              className="m-2"
+              onClick={() => {
+                handleUpdateModal();
+              }}
+              variant="dark"
+            >
+              <i className="far fa-edit" />
+            </Button>
+            <Button
+              className="m-2"
+              onClick={() => {
+                handleDeleteModal();
+              }}
+              variant="danger"
+            >
+              <i className="fas fa-trash" />
+            </Button>
+          </div>
         </Card>
         {/* ================  MODAL Modifier le compte ==================== */}
         <Modal size="lg" show={showUpdate} onHide={() => handleUpdateModal()}>
@@ -188,7 +183,7 @@ const Account = ({
               })}
             >
               {errorMessage && (
-              <Alert variant="danger">{errorMessage}</Alert>)}
+                <Alert variant="danger">{errorMessage}</Alert>)}
               <Form.Group size="lg" controlId="nickname">
                 <Form.Label>Pseudonyme</Form.Label>
                 <Form.Control
@@ -197,9 +192,9 @@ const Account = ({
                   type="text"
                   defaultValue={nickname}
                   onChange={(e) => handleInputChange(e)}
-              // on attache notre input au React Hook Form pour les critères de validation
+                  // on attache notre input au React Hook Form pour les critères de validation
                   ref={register({
-                  // si le champ n'est pas rempli lors de la soumission, le champ se met en focus
+                    // si le champ n'est pas rempli lors de la soumission, le champ se met en focus
                     required: 'Veuillez remplir ce champ !',
                   })}
                 />
@@ -256,15 +251,15 @@ const Account = ({
                   <span className="sr-only">Loading...</span>
                 </Button>
               ) : (
-                <Button
-                  variant="dark"
-                  size="lg"
-                  className="mt-3-auto"
-                  type="submit"
-                >
-                  Valider
-                </Button>
-              )}
+                  <Button
+                    variant="dark"
+                    size="lg"
+                    className="mt-3-auto"
+                    type="submit"
+                  >
+                    Valider
+                  </Button>
+                )}
             </Form>
           </Modal.Body>
         </Modal>
@@ -275,8 +270,8 @@ const Account = ({
           <Modal.Body>
             <h3 className="text-danger text-center">⚠ Attention !</h3>
             <p> En cliquant sur le bouton « Confirmer », vous allez supprimer votre compte
-              avec vos carnets de voyages et toutes vos photos. Cette suppression est définitive,
-              nous ne pourrons pas récupérer vos données ultérieurement.
+            avec vos carnets de voyages et toutes vos photos. Cette suppression est définitive,
+            nous ne pourrons pas récupérer vos données ultérieurement.
             </p>
           </Modal.Body>
           <Modal.Footer>

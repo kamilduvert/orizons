@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import history from '../history';
+import history from '../utils/history';
 
 import Trip from 'src/components/Trip';
 import { getTrip, updateTrip, deleteTrip, updateStep, deleteStep } from '../actions/trip';

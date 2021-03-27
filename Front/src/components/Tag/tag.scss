@@ -1,9 +1,9 @@
 .pretty_tag {
-  height: 55px !important;
+  height: 40px !important;
   width: 100px !important;
   overflow: hidden;
   padding: 0;
-  margin: 0.5rem auto !important;
+  margin: 0.5rem 0 !important;
   
   &-image {
     height: 100%;
@@ -27,4 +27,20 @@
 
   }
 
+}
+
+@media screen and (min-width: 768px) {
+
+  .pretty_tag {
+    height: 50px !important;
+    width: 120px !important;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+  .pretty_tag {
+    height: 80px !important;
+    width: 150px !important;
+  }
 }
